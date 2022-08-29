@@ -8,7 +8,20 @@ interface NavbarProps {
 export default function NavBar() {
   return (
     <div className="z-0 w-full">
-      <MobileNavbar />
+      <div className="lg:hidden">
+        <MobileNavbar />
+      </div>
+      <div className="hidden lg:block">
+        <BigScreenNavbar />
+      </div>
+    </div>
+  );
+}
+
+function BigScreenNavbar() {
+  return (
+    <div>
+      <p>navbar</p>
     </div>
   );
 }

@@ -2,17 +2,40 @@ import type { NextPage } from "next";
 import { StaticImageData } from "next/image";
 import backgroundImage from "./../public/index_placeholder.jpg";
 import Image from "next/image";
+import StandardButton from "./../components/standardButton";
 
 const Home: NextPage = () => {
   const backgroundImage = require("../public/index_placeholder.jpg");
 
   return (
     <div className="">
-      <ImageSection />
-      <SiteShowcase />
+      <div className="lg:hidden">
+        <MobileIndex />
+      </div>
+      <div className="hidden lg:block">
+        <BigScreenIndex />
+      </div>
     </div>
   );
 };
+
+function BigScreenIndex() {
+  return (
+    <div>
+      <p>bigg</p>
+    </div>
+  );
+}
+
+function MobileIndex() {
+  return (
+    <div>
+      <ImageSection />
+      <SiteShowcase />
+      <FormSection />
+    </div>
+  );
+}
 
 function ImageSection() {
   const imageSource: StaticImageData = backgroundImage;
@@ -58,8 +81,8 @@ function SiteShowcase() {
   ];
   return (
     <div className="bg-neutral-900 py-12">
-      {data.map((item) => (
-        <div className="mb-12 w-3/4 flex m-auto">
+      {data.map((item, index) => (
+        <div className="mb-12 w-3/4 flex m-auto justify-center" key={index}>
           <div className="grid text-white text-center py-2">
             <div className="bg-gray-200 w-56 h-48 flex m-auto">
               <span className="text-black text-4xl flex m-auto">Bild</span>
@@ -69,6 +92,25 @@ function SiteShowcase() {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+function FormSection() {
+  return (
+    <div className="w-3/4 my-6 grid m-auto justify-center">
+      <span className="text-2xl flex m-auto text-center w-3/4 my-4">
+        Har du förslag på förbättringar? Vi vill gärna höra från dig!
+      </span>
+      <textarea
+        className="w-full p-2 h-72 border-2 border-neutral-500 text-start shadow rounded-sm"
+        placeholder="Jag har ett förslag om..."
+      />
+      <div className="justify-end w-full flex">
+        <div className="w-40 justify-end m-4">
+          <StandardButton text="skicka" url="/" />
+        </div>
+      </div>
     </div>
   );
 }
