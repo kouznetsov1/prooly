@@ -51,7 +51,7 @@ export default function Stepper(props: StepperProps) {
   };
 
   return (
-    <div>
+    <div className="w-96 h-24 p-8">
       <ol className="flex">{renderLI()}</ol>
     </div>
   );

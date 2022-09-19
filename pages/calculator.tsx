@@ -3,18 +3,16 @@ import Stepper from "../components/stepper";
 
 export default function CalorieCalculator() {
   return (
-    <div className="bg-neutral-900 border-4">
+    <div className="bg-neutral-900">
+      <div className="flex justify-center">
+        <Stepper steps={3} currentStep={1} />
+      </div>
+      <h1 className="text-white text-2xl m-auto w-1/2 text-center my-4">
+        Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
+      </h1>
       <div>
-        <div className="flex justify-center my-12 mr-10">
-          <Stepper steps={3} currentStep={1} />
-        </div>
-        <h1 className="text-white text-2xl m-auto w-1/2 text-center my-8 mt-16">
-          Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
-        </h1>
-        <div>
-          <CalculatorButtons />
-          <AgeSection />
-        </div>
+        <CalculatorButtons />
+        <AgeSection />
       </div>
     </div>
   );
@@ -35,10 +33,19 @@ function CalculatorButtons() {
 
 function AgeSection() {
   return (
-    <div className="grid text-white w-96 border-2 m-auto">
+    <div>
+      <p>AgeSection</p>
+    </div>
+  );
+}
+
+/*
+function AgeSection() {
+  return (
+    <div className="grid text-white w-full border-2 m-auto">
       <div className="grid grid-cols-3 justify-between my-2">
         <span className="col-end-1 w-32">Ålder</span>
-        <div className="col-start-2 col-span-2 justify-end flex">
+        <div className="col-start-2 col-span-2 justify-start flex">
           <input type="number" className="w-20 text-black"></input>
           <span className="ml-2">(15-80)</span>
         </div>
@@ -97,3 +104,4 @@ function LengthWeightForm() {
     </div>
   );
 }
+*/

@@ -3,6 +3,7 @@ import { StaticImageData } from "next/image";
 import backgroundImage from "./../public/index_placeholder.jpg";
 import Image from "next/image";
 import StandardButton from "./../components/standardButton";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   const backgroundImage = require("../public/index_placeholder.jpg");
@@ -47,9 +48,11 @@ function ImageSection() {
           <span className="text-4xl font-bold">Ät hälsosamt,</span>
           <span className="text-2xl">vi gör jobbet.</span>
         </div>
-        <button className="bg-yellow-300 text-neutral-900 uppercase font-bold py-2 px-4 border-4 text-2xl border-black">
-          Sätt igång
-        </button>
+        <Link href="/calculator">
+          <button className="bg-yellow-300 text-neutral-900 uppercase font-bold py-2 px-4 border-4 text-2xl border-black">
+            Sätt igång
+          </button>
+        </Link>
       </div>
     </div>
   );
