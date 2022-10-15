@@ -1,7 +1,10 @@
+import { useState } from "react";
 import StandardButton from "../components/standardButton";
 import Stepper from "../components/stepper";
 
 export default function CalorieCalculator() {
+  const [useCalculator, setUseCalculator] = useState(true);
+
   return (
     <div className="bg-neutral-900">
       <div className="flex justify-center">
@@ -11,12 +14,20 @@ export default function CalorieCalculator() {
         Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
       </h1>
       <div>
-        <CalculatorButtons />
-        <Sections />
+        <CalculatorButtons
+          setUseCalculator={setUseCalculator}
+          useCalculator={useCalculator}
+        />
+        {useCalculator ? <Sections /> : <CustomMacros />}
       </div>
       <MoveOnButton />
     </div>
   );
+}
+
+interface CalculatorButtonsProps {
+  setUseCalculator: React.Dispatch<React.SetStateAction<boolean>>;
+  useCalculator: boolean;
 }
 
 interface CategoryProps {
@@ -55,18 +66,42 @@ var experience: CategoryProps = {
 
 var categories: CategoryProps[] = [activityLevel, goal, experience];
 
-function CalculatorButtons(): JSX.Element {
+const CalculatorButtons = (props: CalculatorButtonsProps) => {
   return (
     <div className="w-96 flex justify-evenly m-auto my-8">
-      <button className="bg-yellow-300 text-neutral-900 border-2 py-2 px-4 rounded-md text-2xl border-black">
-        Kalkylator
-      </button>
-      <button className="text-yellow-300 border-2 border-yellow-300 py-2 px-4 rounded-md text-2xl">
-        Fyll i själv
-      </button>
+      {props.useCalculator ? (
+        <button
+          className="bg-yellow-300 text-neutral-900 border-2 py-2 px-4 rounded-md text-2xl border-black"
+          onClick={() => props.setUseCalculator(true)}
+        >
+          Kalkylator
+        </button>
+      ) : (
+        <button
+          className="text-yellow-300 border-2 border-yellow-300 py-2 px-4 rounded-md text-2xl"
+          onClick={() => props.setUseCalculator(true)}
+        >
+          Kalkylator
+        </button>
+      )}
+      {props.useCalculator ? (
+        <button
+          className="text-yellow-300 border-2 border-yellow-300 py-2 px-4 rounded-md text-2xl"
+          onClick={() => props.setUseCalculator(false)}
+        >
+          Fyll i själv
+        </button>
+      ) : (
+        <button
+          className="bg-yellow-300 text-neutral-900 border-2 py-2 px-4 rounded-md text-2xl border-black"
+          onClick={() => props.setUseCalculator(false)}
+        >
+          Fyll i själv
+        </button>
+      )}
     </div>
   );
-}
+};
 
 function Sections(): JSX.Element {
   return (
@@ -123,7 +158,7 @@ function AgeSection(): JSX.Element {
   );
 }
 
-function RadioGenderButtons() {
+function RadioGenderButtons(): JSX.Element {
   return (
     <div className="grid justify-between my-2 grid-cols-3">
       <span className="col-end-1 w-24">Kön</span>
@@ -153,7 +188,7 @@ function RadioGenderButtons() {
   );
 }
 
-function LengthWeightForm() {
+function LengthWeightForm(): JSX.Element {
   return (
     <div>
       <div className="grid grid-cols-3 justify-between my-2">
@@ -172,10 +207,18 @@ function LengthWeightForm() {
   );
 }
 
+const CustomMacros = (): JSX.Element => {
+  return (
+    <div>
+      <p>custom</p>
+    </div>
+  );
+};
+
 const MoveOnButton = (): JSX.Element => {
   return (
     <div className="w-36 m-auto h-24">
-      <StandardButton text="Nästa" url="/calculator" />
+      <StandardButton text="Nästa" url="/calculator" inverted={true} />
     </div>
   );
 };
