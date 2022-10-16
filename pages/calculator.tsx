@@ -1,70 +1,46 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import StandardButton from "../components/standardButton";
 import Stepper from "../components/stepper";
 
 export default function CalorieCalculator() {
   const [useCalculator, setUseCalculator] = useState(true);
+  const [finishCalculator, setFinishCalculator] = useState(false);
 
   return (
-    <div className="bg-neutral-900">
+    <div className="bg-neutral-900 min-h-screen">
       <div className="flex justify-center">
         <Stepper steps={3} currentStep={1} />
       </div>
-      <h1 className="text-white text-2xl m-auto w-1/2 text-center my-4">
-        Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
-      </h1>
-      <div>
-        <CalculatorButtons
-          setUseCalculator={setUseCalculator}
-          useCalculator={useCalculator}
-        />
-        {useCalculator ? <Sections /> : <CustomMacros />}
-      </div>
-      <MoveOnButton />
+
+      {finishCalculator ? (
+        <Results />
+      ) : (
+        <div>
+          <h1 className="text-white text-2xl m-auto w-1/2 text-center my-4">
+            Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
+          </h1>
+          <div>
+            <CalculatorButtons
+              setUseCalculator={setUseCalculator}
+              useCalculator={useCalculator}
+            />
+            {useCalculator ? <Sections /> : <CustomMacros />}
+          </div>
+          <MoveOnButton setFinishCalculator={setFinishCalculator} />
+        </div>
+      )}
     </div>
   );
+}
+
+interface MoveButtonProps {
+  setFinishCalculator: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface CalculatorButtonsProps {
   setUseCalculator: React.Dispatch<React.SetStateAction<boolean>>;
   useCalculator: boolean;
 }
-
-interface CategoryProps {
-  title: string;
-  options: string[];
-}
-
-var activityLevel: CategoryProps = {
-  title: "Vad är din aktivitetsnivå?",
-  options: [
-    "Stillasittande, ingen träning",
-    "Mestadels stillasittande (kontorsarbete) + träning 3-6 dagar i veckan",
-    "Lätt aktivitet (träning 3-6 dagar i veckan) + jobb som kräver fysisk aktivitet",
-    "Hög aktivitet (träning 6-7 dagar i veckan) + jobb som kräver fysisk aktivitet",
-  ],
-};
-
-var goal: CategoryProps = {
-  title: "Vad har du för mål?",
-  options: [
-    "Deff - viktminsking med fokus på fettförbränning",
-    "Muskeltillväxt - viktökning med fokus på muskeltillväxt",
-    "Omfördelning - bibehållande av vikt med fokus på muskeltillväxt och fettförbränning",
-  ],
-};
-
-var experience: CategoryProps = {
-  title: "Vad har du för erfarenhet?",
-  options: [
-    "Nybörjare - helt ny till träning",
-    "Medel - ökar belastningen i gymmet på veckobasis",
-    "Intermediär - ökar belastningen i gymmet på månadsbasis",
-    "Avancerad - framsteg går endast att se över månader eller ett år",
-  ],
-};
-
-var categories: CategoryProps[] = [activityLevel, goal, experience];
 
 const CalculatorButtons = (props: CalculatorButtonsProps) => {
   return (
@@ -110,34 +86,72 @@ function Sections(): JSX.Element {
         <AgeSection />
       </div>
       <div>
-        {categories.map((category) => (
-          <CategorySection title={category.title} options={category.options} />
-        ))}
+        <CategorySection />
       </div>
     </div>
   );
 }
 
-const CategorySection = (props: CategoryProps): JSX.Element => {
+const CategorySection = (): JSX.Element => {
+  interface CategoryProps {
+    title: string;
+    options: string[];
+  }
+
+  var activityLevel: CategoryProps = {
+    title: "Vad är din aktivitetsnivå?",
+    options: [
+      "Stillasittande, ingen träning",
+      "Mestadels stillasittande (kontorsarbete) + träning 3-6 dagar i veckan",
+      "Lätt aktivitet (träning 3-6 dagar i veckan) + jobb som kräver fysisk aktivitet",
+      "Hög aktivitet (träning 6-7 dagar i veckan) + jobb som kräver fysisk aktivitet",
+    ],
+  };
+
+  var goal: CategoryProps = {
+    title: "Vad har du för mål?",
+    options: [
+      "Deff - viktminsking med fokus på fettförbränning",
+      "Muskeltillväxt - viktökning med fokus på muskeltillväxt",
+      "Omfördelning - bibehållande av vikt med fokus på muskeltillväxt och fettförbränning",
+    ],
+  };
+
+  var experience: CategoryProps = {
+    title: "Vad har du för erfarenhet?",
+    options: [
+      "Nybörjare - helt ny till träning",
+      "Medel - ökar belastningen i gymmet på veckobasis",
+      "Intermediär - ökar belastningen i gymmet på månadsbasis",
+      "Avancerad - framsteg går endast att se över månader eller ett år",
+    ],
+  };
+
+  var categories: CategoryProps[] = [activityLevel, goal, experience];
+
   return (
-    <div className="my-8 w-5/6 lg:w-full m-auto">
-      <h2 className="text-white text-2xl mb-2">{props.title}</h2>
-      <div className="flex flex-wrap justify-center">
-        {props.options.map((option) => (
-          <div className="w-full my-2 flex">
-            <input
-              className="ml-1"
-              type="radio"
-              name="colored-radio"
-              value={option}
-              id={option + "-radio"}
-            />
-            <div className="mx-2 w-full">
-              <span className="text-white">{option}</span>
-            </div>
+    <div>
+      {categories.map((category, index) => (
+        <div className="my-8 w-5/6 lg:w-full m-auto">
+          <h2 className="text-white text-2xl mb-2">{category.title}</h2>
+          <div className="flex flex-wrap justify-center">
+            {category.options.map((option) => (
+              <div className="w-full my-2 flex">
+                <input
+                  className="ml-1"
+                  type="radio"
+                  name="colored-radio"
+                  value={index}
+                  id={index + category.title}
+                />
+                <div className="mx-2 w-full">
+                  <span className="text-white">{option}</span>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 };
@@ -163,7 +177,7 @@ function RadioGenderButtons(): JSX.Element {
     <div className="grid justify-between my-2 grid-cols-3">
       <span className="col-end-1 w-24">Kön</span>
       <div className="col-start-2 col-span-2 mx-3">
-        <div className="">
+        <div className="flex">
           <input
             type="radio"
             name="colored-radio"
@@ -173,7 +187,7 @@ function RadioGenderButtons(): JSX.Element {
           />
           <span className="text-white mx-2">Man</span>
         </div>
-        <div className="">
+        <div className="flex">
           <input
             type="radio"
             name="colored-radio"
@@ -207,18 +221,76 @@ function LengthWeightForm(): JSX.Element {
   );
 }
 
-const CustomMacros = (): JSX.Element => {
+const Results = (): JSX.Element => {
+  // placeholder data
+  var data = [
+    {
+      title: "Kalorier",
+      value: 3000,
+    },
+    {
+      title: "Protein",
+      value: 250,
+    },
+    {
+      title: "Kolhydrater",
+      value: 300,
+    },
+    {
+      title: "Fett",
+      value: 150,
+    },
+  ];
+
   return (
-    <div>
-      <p>custom</p>
+    <div className="w-full text-white">
+      <div className="w-4/6 m-auto">
+        <h1 className="text-3xl text-center my-4">Resultat</h1>
+      </div>
+      <div className="w-5/6 m-auto my-4 mt-8">
+        {data.map((item) => (
+          <div className="my-4 text-center">
+            {item.title === "Kalorier" ? (
+              <span>
+                Ditt dagliga intag av kalorier är{" "}
+                <span className="text-yellow-300">{item.value}</span> kalorier
+                med följande näringsvärden:
+              </span>
+            ) : (
+              <span>
+                {item.title}:{" "}
+                <span className="text-yellow-300">{item.value}</span> gram
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-const MoveOnButton = (): JSX.Element => {
+const CustomMacros = (): JSX.Element => {
+  var data = ["Kalorier (kcal)", "Protein (g)", "Kolhydrater (g)", "Fett (g)"];
+  return (
+    <div className="w-4/6 m-auto my-12">
+      {data.map((item) => (
+        <div className="grid grid-cols-2 justify-between my-2">
+          <span className="col-end-1 w-26 text-white">{item}</span>
+          <div className="col-start-3 col-span-2">
+            <input type="number" className="w-20 text-black"></input>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const MoveOnButton = (props: MoveButtonProps): JSX.Element => {
   return (
     <div className="w-36 m-auto h-24">
-      <StandardButton text="Nästa" url="/calculator" inverted={true} />
+      <div onClick={() => props.setFinishCalculator(true)}>
+        <StandardButton text="Nästa" url="/calculator" inverted={true} />
+      </div>
     </div>
   );
 };
