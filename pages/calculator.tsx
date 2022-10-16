@@ -1,3 +1,4 @@
+import { setFips } from "crypto";
 import React, { useState } from "react";
 import StandardButton from "../components/standardButton";
 import Stepper from "../components/stepper";
@@ -13,7 +14,7 @@ export default function CalorieCalculator() {
       </div>
 
       {finishCalculator ? (
-        <Results />
+        <Results setFinishCalculator={setFinishCalculator} />
       ) : (
         <div>
           <h1 className="text-white text-2xl m-auto w-1/2 text-center my-4">
@@ -42,6 +43,7 @@ interface CalculatorButtonsProps {
   useCalculator: boolean;
 }
 
+// This is the buttons that change mode for the calculator
 const CalculatorButtons = (props: CalculatorButtonsProps) => {
   return (
     <div className="w-96 flex justify-evenly m-auto my-8">
@@ -79,6 +81,7 @@ const CalculatorButtons = (props: CalculatorButtonsProps) => {
   );
 };
 
+// Sections for the calculator
 function Sections(): JSX.Element {
   return (
     <div className="w-5/6 lg:w-1/2 m-auto">
@@ -221,7 +224,9 @@ function LengthWeightForm(): JSX.Element {
   );
 }
 
-const Results = (): JSX.Element => {
+// Section for showing the results
+// Conditionally rendered
+const Results = (props: MoveButtonProps): JSX.Element => {
   // placeholder data
   var data = [
     {
@@ -265,10 +270,17 @@ const Results = (): JSX.Element => {
           </div>
         ))}
       </div>
+      <div className="w-full">
+        <ResultButtons setFinishCalculator={props.setFinishCalculator} />
+      </div>
+      <div>
+        <FeedbackForm />
+      </div>
     </div>
   );
 };
 
+// For when you want to add custom macros
 const CustomMacros = (): JSX.Element => {
   var data = ["Kalorier (kcal)", "Protein (g)", "Kolhydrater (g)", "Fett (g)"];
   return (
@@ -289,7 +301,47 @@ const MoveOnButton = (props: MoveButtonProps): JSX.Element => {
   return (
     <div className="w-36 m-auto h-24">
       <div onClick={() => props.setFinishCalculator(true)}>
-        <StandardButton text="Nästa" url="/calculator" inverted={true} />
+        <StandardButton text="Nästa" url="/calculator" inverted={false} />
+      </div>
+    </div>
+  );
+};
+
+const ResultButtons = (props: MoveButtonProps): JSX.Element => {
+  return (
+    <div className="w-1/2 md:w-2/5 lg:w-1/5 m-auto my-12 flex text-sm justify-around">
+      <div className="w-32" onClick={() => props.setFinishCalculator(false)}>
+        <StandardButton text="gå tillbaka" url="/calculator" inverted={true} />
+      </div>
+      <div className="w-28">
+        <StandardButton text="gå vidare" url="/calculator" inverted={false} />
+      </div>
+    </div>
+  );
+};
+
+const FeedbackForm = (): JSX.Element => {
+  var placeHolderText: string =
+    "Jag har räknat ut mitt kaloriintag men något blev fel..";
+  return (
+    <div className="w-1/2 m-auto">
+      <div className="text-center m-auto w-1/2 my-6">
+        <span className="">Ser något inte rätt ut?</span>
+        <span className="">Kontakta oss här:</span>
+      </div>
+      <div>
+        <form className="w-4/5 m-auto">
+          <textarea
+            id="feedback-result"
+            className="w-full h-40 text-black focus:outline-none p-1 overflow-auto rounded-sm"
+            placeholder={placeHolderText}
+          />
+        </form>
+      </div>
+      <div className="w-4/5 m-auto flex">
+        <div className="w-full flex justify-end">
+          <StandardButton text="Skicka" url="" inverted={false} />
+        </div>
       </div>
     </div>
   );

@@ -111,7 +111,7 @@ function FormSection() {
       />
       <div className="justify-end w-full flex">
         <div className="w-40 justify-end m-4">
-          <StandardButton text="skicka" url="/" />
+          <StandardButton text="skicka" url="/" inverted={true} />
         </div>
       </div>
     </div>
