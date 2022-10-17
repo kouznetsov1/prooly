@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { setFips } from "crypto";
 import React, { useState } from "react";
 import StandardButton from "../components/standardButton";
@@ -87,7 +88,7 @@ const CalculatorButtons = (props: CalculatorButtonsProps) => {
 // Sections for the calculator
 function Sections(): JSX.Element {
   return (
-    <div className="w-5/6 lg:w-1/2 m-auto">
+    <div className="w-5/6 lg:w-1/3 m-auto">
       <div>
         <AgeSection />
       </div>
@@ -164,7 +165,7 @@ const CategorySection = (): JSX.Element => {
 
 function AgeSection(): JSX.Element {
   return (
-    <div className="grid text-white w-4/6 m-auto justify-evenly">
+    <div className="grid text-white w-5/6 m-auto justify-evenly">
       <div className="grid grid-cols-3 justify-evenly my-2">
         <span className="col-end-1 w-24">Ålder</span>
         <div className="col-start-2 col-span-2 justify-start flex">
@@ -287,7 +288,7 @@ const Results = (props: MoveButtonProps): JSX.Element => {
 const CustomMacros = (): JSX.Element => {
   var data = ["Kalorier (kcal)", "Protein (g)", "Kolhydrater (g)", "Fett (g)"];
   return (
-    <div className="w-4/6 m-auto my-12">
+    <div className="w-4/6 lg:w-1/4 m-auto my-12">
       {data.map((item) => (
         <div className="grid grid-cols-2 justify-between my-2">
           <span className="col-end-1 w-26 text-white">{item}</span>
@@ -329,8 +330,12 @@ const FeedbackForm = (): JSX.Element => {
   return (
     <div className="w-1/2 m-auto">
       <div className="text-center m-auto w-1/2 my-6">
-        <span className="">Ser något inte rätt ut?</span>
-        <span className="">Kontakta oss här:</span>
+        <div>
+          <span className="">Ser något inte rätt ut?</span>
+        </div>
+        <div>
+          <span className="">Kontakta oss här:</span>
+        </div>
       </div>
       <div>
         <form className="w-4/5 m-auto">
