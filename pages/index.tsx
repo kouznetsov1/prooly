@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 function BigScreenIndex() {
   return (
     <div>
-      <p>bigg</p>
+      <p>HAAAAAAUUU</p>
     </div>
   );
 }

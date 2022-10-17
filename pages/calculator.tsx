@@ -315,7 +315,7 @@ const ResultButtons = (props: MoveButtonProps): JSX.Element => {
   return (
     <div className="w-1/2 md:w-2/5 lg:w-1/5 m-auto my-12 flex text-sm justify-around">
       <div className="w-32" onClick={() => props.setFinishCalculator(false)}>
-        <StandardButton text="gå tillbaka" url="/calculator" inverted={true} />
+        <StandardButton text="gå tillbaka" url="/calculator" inverted={false} />
       </div>
       <div className="w-28">
         <StandardButton text="gå vidare" url="/calculator" inverted={false} />
