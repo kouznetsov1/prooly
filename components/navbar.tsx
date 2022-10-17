@@ -18,13 +18,37 @@ export default function NavBar() {
   );
 }
 
-function BigScreenNavbar() {
+const BigScreenNavbar = (): JSX.Element => {
+  var data: NavbarProps[] = [
+    { url: "/", name: "Start" },
+    { url: "/about", name: "Om oss" },
+    { url: "/contact", name: "Kontakta oss" },
+  ];
   return (
-    <div>
-      <p>navbar</p>
+    <div className="h-24 bg-black flex">
+      <div className="w-5/6 flex items-center justify-between m-auto">
+        <div>
+          <span className="underline underline-offset-8 text-yellow-300 text-2xl font-extrabold">
+            PROOLY
+          </span>
+        </div>
+        <div className="text-white">
+          {data.map((item) => (
+            <Link href={item.url}>
+              <button className="mx-12 uppercase font-bold text-center m-auto transition hover:text-yellow-300 hover:-translate-y-1">
+                {item.name}
+              </button>
+            </Link>
+          ))}
+        </div>
+        <div className="text-white space-x-4">
+          <span className="">USER1337</span>
+          <span className="border-2 border-white rounded-full p-2">{":D"}</span>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 function MobileNavbar() {
   return (

@@ -8,28 +8,31 @@ export default function CalorieCalculator() {
   const [finishCalculator, setFinishCalculator] = useState(false);
 
   return (
-    <div className="bg-neutral-900 min-h-screen">
-      <div className="flex justify-center">
-        <Stepper steps={3} currentStep={1} />
-      </div>
-
-      {finishCalculator ? (
-        <Results setFinishCalculator={setFinishCalculator} />
-      ) : (
-        <div>
-          <h1 className="text-white text-2xl m-auto w-1/2 text-center my-4">
-            Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
-          </h1>
-          <div>
-            <CalculatorButtons
-              setUseCalculator={setUseCalculator}
-              useCalculator={useCalculator}
-            />
-            {useCalculator ? <Sections /> : <CustomMacros />}
-          </div>
-          <MoveOnButton setFinishCalculator={setFinishCalculator} />
+    <div className="bg-neutral-900 min-h-screen border-2 border-neutral-900">
+      {/* Try to fix without using a border, margin makes a white line between content and header */}
+      <div className="my-12">
+        <div className="flex justify-center">
+          <Stepper steps={3} currentStep={1} />
         </div>
-      )}
+
+        {finishCalculator ? (
+          <Results setFinishCalculator={setFinishCalculator} />
+        ) : (
+          <div>
+            <h1 className="text-white text-2xl m-auto w-1/2 text-center my-4">
+              Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
+            </h1>
+            <div>
+              <CalculatorButtons
+                setUseCalculator={setUseCalculator}
+                useCalculator={useCalculator}
+              />
+              {useCalculator ? <Sections /> : <CustomMacros />}
+            </div>
+            <MoveOnButton setFinishCalculator={setFinishCalculator} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -46,7 +49,7 @@ interface CalculatorButtonsProps {
 // This is the buttons that change mode for the calculator
 const CalculatorButtons = (props: CalculatorButtonsProps) => {
   return (
-    <div className="w-96 flex justify-evenly m-auto my-8">
+    <div className="w-96 flex justify-evenly m-auto my-12">
       {props.useCalculator ? (
         <button
           className="bg-yellow-300 text-neutral-900 border-2 py-2 px-4 rounded-md text-2xl border-black"
