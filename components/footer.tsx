@@ -7,7 +7,7 @@ interface FooterProps {
 
 export default function Footer() {
   return (
-    <div className="bg-black flex bottom-0 w-full h-24">
+    <div className="bg-black flex bottom-0 w-full h-20">
       <MobileFooter />
     </div>
   );

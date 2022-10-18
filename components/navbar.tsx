@@ -25,7 +25,7 @@ const BigScreenNavbar = (): JSX.Element => {
     { url: "/contact", name: "Kontakta oss" },
   ];
   return (
-    <div className="h-24 bg-black flex">
+    <div className="h-20 bg-black flex">
       <div className="w-5/6 flex items-center justify-between m-auto">
         <div>
           <span className="underline underline-offset-8 text-yellow-300 text-2xl font-extrabold">

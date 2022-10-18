@@ -9,7 +9,7 @@ export default function CalorieCalculator() {
   const [finishCalculator, setFinishCalculator] = useState(false);
 
   return (
-    <div className="bg-neutral-900 min-h-screen border-2 border-neutral-900">
+    <div className="bg-neutral-900 min-h-[calc(100vh-160px)] border-2 border-neutral-900">
       {/* Try to fix without using a border, margin makes a white line between content and header */}
       <div className="my-12">
         <div className="flex justify-center">
