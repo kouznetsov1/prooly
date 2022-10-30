@@ -109,17 +109,41 @@ function SiteShowcase() {
   ];
   return (
     <div className="bg-neutral-900 py-12">
-      {data.map((item, index) => (
-        <div className="mb-12 w-3/4 flex m-auto justify-center" key={index}>
-          <div className="grid text-white text-center py-2">
-            <div className="bg-gray-200 w-56 h-48 flex m-auto">
+      {data.map((item, index) => {
+        return index % 2 === 0 ? (
+          <div className="mb-32 w-3/4 flex m-auto justify-center" key={index}>
+            <div className="text-white text-center py-2 flex m-auto">
+              <div className="bg-gray-200 w-96 h-56 flex m-auto">
+                <span className="text-black text-4xl flex m-auto">Bild</span>
+              </div>
+              <div className="w-96 m-auto ml-32 border-2">
+                <div className="mb-4 text-yellow-300">
+                  <span className="text-2xl font-bold my-4">{item.title}</span>
+                </div>
+                <div className="">
+                  <span className="text-md">{item.description}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="mb-32 w-3/4 flex m-auto justify-center" key={index}>
+            <div className="text-white text-center py-2 flex m-auto">
+              <div className="w-96 m-auto mr-32 border-2">
+                <div className="mb-4 text-yellow-300">
+                  <span className="text-2xl font-bold my-4">{item.title}</span>
+                </div>
+                <div className="">
+                  <span className="text-md">{item.description}</span>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-200 w-96 h-56 flex m-auto">
               <span className="text-black text-4xl flex m-auto">Bild</span>
             </div>
-            <span className="text-2xl font-bold my-4">{item.title}</span>
-            <span className="text-md">{item.description}</span>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
