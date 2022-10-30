@@ -4,7 +4,7 @@ import backgroundImage from "./../public/index_placeholder.jpg";
 import Image from "next/image";
 import StandardButton from "./../components/standardButton";
 import Link from "next/link";
-import backGroundImage_2 from "./../public/groceries.jpg";
+import backGroundImage_2 from "./../public/big.png";
 import { url } from "inspector";
 
 const Home: NextPage = () => {
@@ -25,7 +25,7 @@ function BigScreenIndex() {
     <div className="w-full top-0 relative min-h-[calc(100vh-160px)]">
       <div className="flex border-2 h-[600px]">
         <div className="m-auto flex space-x-40">
-          <div className="w-[400px] border-4 flex items-center rounded-sm justify-center border-black h-[500px]">
+          <div className="flex w-full items-center rounded-sm justify-center border-black">
             <div className="w-full h-full object-contain flex">
               <Image src={backGroundImage_2} alt="Groceries" />
             </div>
