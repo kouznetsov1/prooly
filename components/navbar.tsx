@@ -22,12 +22,12 @@ const BigScreenNavbar = (): JSX.Element => {
   var data: NavbarProps[] = [
     { url: "/", name: "Start" },
     { url: "/about", name: "Om oss" },
-    { url: "/contact", name: "Kontakta oss" },
+    { url: "/contact", name: "Kontakt" },
   ];
   return (
     <div className="h-20 bg-black flex">
       <div className="w-5/6 flex items-center justify-between m-auto">
-        <div>
+        <div className="w-40">
           <span className="underline underline-offset-8 text-yellow-300 text-2xl font-extrabold">
             PROOLY
           </span>
@@ -35,15 +35,19 @@ const BigScreenNavbar = (): JSX.Element => {
         <div className="text-white">
           {data.map((item) => (
             <Link href={item.url}>
-              <button className="mx-12 uppercase font-bold text-center m-auto transition hover:text-yellow-300 hover:-translate-y-1">
+              <button className="mx-12 w-24 uppercase font-bold text-center m-auto transition hover:text-yellow-300 hover:-translate-y-1">
                 {item.name}
               </button>
             </Link>
           ))}
         </div>
-        <div className="text-white space-x-4">
-          <span className="">USER1337</span>
-          <span className="border-2 border-white rounded-full p-2">{":D"}</span>
+        <div className="w-40">
+          <div className="text-white space-x-4">
+            <span className="">USER1337</span>
+            <span className="border-2 border-white rounded-full p-2">
+              {":D"}
+            </span>
+          </div>
         </div>
       </div>
     </div>

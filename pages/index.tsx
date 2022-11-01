@@ -23,25 +23,33 @@ const Home: NextPage = () => {
 function BigScreenIndex() {
   return (
     <div className="w-full top-0 relative min-h-[calc(100vh-160px)]">
-      <div className="flex border-2 h-[600px]">
-        <div className="m-auto flex space-x-40">
-          <div className="flex w-full items-center rounded-sm justify-center border-black">
-            <div className="w-full h-full object-contain flex">
-              <Image src={backGroundImage_2} alt="Groceries" />
-            </div>
-          </div>
-          <div className="h-full m-auto w-60">
-            <div>
-              <span className="uppercase text-4xl font-bold">
-                automizing a healthy lifestyle
+      <div className="h-[600px] grid grid-cols-6">
+        <div className="m-auto flex space-x-40 col-span-2">
+          <div className="h-full m-auto lg:w-80 2xl:w-96">
+            <div className="text-center mb-10">
+              <span className="uppercase lg:text-2xl 2xl:text-6xl font-bold flex">
+                skräddarsy din egen kostplan
               </span>
             </div>
-            <div className="my-4">
+            <div className="my-4 flex justify-center">
               <StandardButton
                 url="/calculator"
                 text="sätt igång"
                 inverted={false}
               />
+            </div>
+          </div>
+        </div>
+        <div className="col-span-4 bg-black text-white text-6xl uppercase bold font-bold">
+          <div className="flex h-full items-center">
+            <div className="rotate-90">
+              <span>automizing a</span>
+            </div>
+            <div>
+              <span>healthy lifestyle</span>
+              <div className="text-center text-yellow-300 mt-12">
+                <span>prooly</span>
+              </div>
             </div>
           </div>
         </div>
@@ -102,13 +110,13 @@ function SiteShowcase() {
       image: require("../public/index_placeholder.jpg"),
     },
     {
-      title: "3. Till kassan!",
-      description: "Dags att få hem maten och bli stark!",
+      title: "3. Kostplan färdig!",
+      description: "Exportera din kostplan och nå dina mål!",
       image: require("../public/index_placeholder.jpg"),
     },
   ];
   return (
-    <div className="bg-neutral-900 py-12">
+    <div className="bg-neutral-900 py-12 pt-24">
       {data.map((item, index) => {
         return index % 2 === 0 ? (
           <div className="mb-32 w-3/4 flex m-auto justify-center" key={index}>
@@ -116,7 +124,7 @@ function SiteShowcase() {
               <div className="bg-gray-200 w-96 h-56 flex m-auto">
                 <span className="text-black text-4xl flex m-auto">Bild</span>
               </div>
-              <div className="w-96 m-auto ml-32 border-2">
+              <div className="w-96 m-auto ml-32">
                 <div className="mb-4 text-yellow-300">
                   <span className="text-2xl font-bold my-4">{item.title}</span>
                 </div>
@@ -129,7 +137,7 @@ function SiteShowcase() {
         ) : (
           <div className="mb-32 w-3/4 flex m-auto justify-center" key={index}>
             <div className="text-white text-center py-2 flex m-auto">
-              <div className="w-96 m-auto mr-32 border-2">
+              <div className="w-96 m-auto mr-32">
                 <div className="mb-4 text-yellow-300">
                   <span className="text-2xl font-bold my-4">{item.title}</span>
                 </div>
@@ -137,9 +145,9 @@ function SiteShowcase() {
                   <span className="text-md">{item.description}</span>
                 </div>
               </div>
-            </div>
-            <div className="bg-gray-200 w-96 h-56 flex m-auto">
-              <span className="text-black text-4xl flex m-auto">Bild</span>
+              <div className="bg-gray-200 w-96 h-56 flex m-auto">
+                <span className="text-black text-4xl flex m-auto">Bild</span>
+              </div>
             </div>
           </div>
         );
