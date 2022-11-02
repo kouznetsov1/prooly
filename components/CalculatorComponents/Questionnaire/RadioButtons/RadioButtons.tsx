@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import {
   CategoryProps,
   activity as activityData,
@@ -5,7 +6,7 @@ import {
   experience as experienceData,
 } from "./data";
 import { useState, useEffect } from "react";
-import { ActivityProps } from "../props";
+import { ActivityProps } from "../../props";
 
 interface Props {
   setParentState: React.Dispatch<React.SetStateAction<ActivityProps[]>>;
