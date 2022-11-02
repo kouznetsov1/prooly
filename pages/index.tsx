@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { StaticImageData } from "next/image";
 import backgroundImage from "./../public/index_placeholder.jpg";
 import Image from "next/image";
-import StandardButton from "./../components/standardButton";
+import StandardButton from "../components/Button/Button";
 import Link from "next/link";
 import backGroundImage_2 from "./../public/big.png";
 import { url } from "inspector";

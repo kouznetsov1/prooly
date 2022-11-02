@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-key */
 import { setFips } from "crypto";
 import React, { SetStateAction, useEffect, useState } from "react";
-import StandardButton from "../components/standardButton";
-import Stepper from "../components/stepper";
+import StandardButton from "../components/Button/Button";
+import Stepper from "../components/Stepper/Stepper";
 
 export default function CalorieCalculator() {
   const [useCalculator, setUseCalculator] = useState(true);
