@@ -5,7 +5,7 @@ export interface ActivityProps {
 }
 
 export interface AgeProps {
-  age: number | string;
+  age: number;
   gender: number;
   weight: number;
   height: number;

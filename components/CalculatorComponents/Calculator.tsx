@@ -2,13 +2,12 @@ import { CalculatorProps } from "./props";
 import { CalculatorButtons } from "./CalculatorButtons";
 import { useState } from "react";
 import { Questionnaire } from "./Questionnaire";
+import { RadioButtons } from "./Questionnaire/RadioButtons";
 
 export const Calculator: React.FC = () => {
   const [useCalculator, setUseCalculator] = useState(true);
   const [finishCalculator, setFinishCalculator] = useState(false);
-  const [information, setInformation] = useState<CalculatorProps>(
-    {} as CalculatorProps
-  );
+  const [information, setInformation] = useState<CalculatorProps[]>([]);
 
   return (
     <div>
@@ -25,7 +24,9 @@ export const Calculator: React.FC = () => {
               useCalculator={useCalculator}
             />
           </div>
-          <Questionnaire />
+          <div className="">
+            <Questionnaire />
+          </div>
         </div>
       )}
     </div>
