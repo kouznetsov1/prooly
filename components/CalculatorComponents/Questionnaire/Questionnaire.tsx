@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const Questionnaire: React.FC = (setParentState) => {
-  const [age, setAge] = useState<AgeProps>({} as AgeProps);
+  const [age, setAge] = useState<AgeProps[]>([]);
   const [activity, setActivity] = useState<ActivityProps>({} as ActivityProps);
 
   useEffect(() => {

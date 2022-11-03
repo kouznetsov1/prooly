@@ -2,11 +2,11 @@ import { AgeProps } from "../../props";
 import { useState, useEffect } from "react";
 
 interface Props {
-  setParentState: React.Dispatch<React.SetStateAction<AgeProps>>;
+  setParentState: React.Dispatch<React.SetStateAction<AgeProps[]>>;
 }
 
 export const Forms: React.FC<Props> = ({ setParentState }) => {
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState("");
   const [gender, setGender] = useState(0);
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
@@ -24,13 +24,21 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
   const lengthAndWeight = ["längd", "vikt"];
 
   useEffect(() => {
-    if (age !== 0 && gender !== 0 && weight !== 0 && height !== 0) {
-      setParentState({
-        age: age,
-        gender: gender,
-        weight: weight,
-        height: height,
-      });
+    if (
+      age !== 0 &&
+      age !== "" &&
+      gender !== 0 &&
+      weight !== 0 &&
+      height !== 0
+    ) {
+      setParentState([
+        {
+          age: age,
+          gender: gender,
+          weight: weight,
+          height: height,
+        },
+      ]);
     }
   }, [age, gender, weight, height]);
 
@@ -83,14 +91,11 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
                   className="w-20 text-black"
                   onInput={(e) => {
                     // TODO: Fix this
-                    console.log(e.target);
-                    /*
                     if (item === "längd") {
-                      setHeight(Number(e.target));
+                      setHeight(Number(e.target.value));
                     } else if (item === "vikt") {
-                      setWeight(Number());
+                      setWeight(Number(e.target.value));
                     }
-                    */
                   }}
                 ></input>
               </div>
