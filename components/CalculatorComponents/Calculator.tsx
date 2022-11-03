@@ -1,9 +1,33 @@
-import { ActivityProps, AgeProps, CalculatorProps } from "./props";
+import { CalculatorProps } from "./props";
+import { CalculatorButtons } from "./CalculatorButtons";
+import { useState } from "react";
+import { Questionnaire } from "./Questionnaire";
 
 export const Calculator: React.FC = () => {
+  const [useCalculator, setUseCalculator] = useState(true);
+  const [finishCalculator, setFinishCalculator] = useState(false);
+  const [information, setInformation] = useState<CalculatorProps>(
+    {} as CalculatorProps
+  );
+
   return (
     <div>
-      <p>hej</p>
+      {finishCalculator ? (
+        <p>results</p>
+      ) : (
+        <div>
+          <h1 className="text-white text-2xl text-center my-4 m-auto">
+            Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
+          </h1>
+          <div>
+            <CalculatorButtons
+              setUseCalculator={setUseCalculator}
+              useCalculator={useCalculator}
+            />
+          </div>
+          <Questionnaire />
+        </div>
+      )}
     </div>
   );
 };

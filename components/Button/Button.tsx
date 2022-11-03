@@ -7,7 +7,7 @@ interface ButtonProps {
   inverted: boolean;
 }
 
-const Button = (props: ButtonProps): JSX.Element => {
+export const Button = (props: ButtonProps): JSX.Element => {
   const [inverted, setInverted] = useState(props.inverted);
 
   return (

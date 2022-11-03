@@ -3,7 +3,7 @@ interface StepperProps {
   currentStep: number;
 }
 
-export default function Stepper(props: StepperProps) {
+export const Stepper: React.FC<StepperProps> = (props) => {
   const renderLI = () => {
     let listItems: Array<any> = [];
     for (let i = 0; i < props.steps; i++) {
@@ -55,4 +55,4 @@ export default function Stepper(props: StepperProps) {
       <ol className="flex">{renderLI()}</ol>
     </div>
   );
-}
+};

@@ -2,7 +2,7 @@ import { AgeProps } from "../../props";
 import { useState, useEffect } from "react";
 
 interface Props {
-  setParentState: React.Dispatch<React.SetStateAction<AgeProps[]>>;
+  setParentState: React.Dispatch<React.SetStateAction<AgeProps>>;
 }
 
 export const Forms: React.FC<Props> = ({ setParentState }) => {
@@ -25,16 +25,14 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
 
   useEffect(() => {
     if (age !== 0 && gender !== 0 && weight !== 0 && height !== 0) {
-      setParentState([
-        {
-          age: age,
-          gender: gender,
-          weight: weight,
-          height: height,
-        },
-      ]);
+      setParentState({
+        age: age,
+        gender: gender,
+        weight: weight,
+        height: height,
+      });
     }
-  });
+  }, [age, gender, weight, height]);
 
   return (
     <div className="grid text-white w-5/6 m-auto justify-evenly">
