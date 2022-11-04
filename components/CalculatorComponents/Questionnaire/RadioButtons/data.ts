@@ -20,8 +20,8 @@ export var goal: CategoryProps = {
   name: "goal",
   options: [
     "Deff - viktminsking med fokus på fettförbränning",
-    "Muskeltillväxt - viktökning med fokus på muskeltillväxt",
     "Omfördelning - bibehållande av vikt med fokus på muskeltillväxt och fettförbränning",
+    "Muskeltillväxt - viktökning med fokus på muskeltillväxt",
   ],
 };
 

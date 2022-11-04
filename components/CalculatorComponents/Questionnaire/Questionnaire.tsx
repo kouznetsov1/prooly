@@ -7,40 +7,37 @@ interface Props {
   setParentState: React.Dispatch<React.SetStateAction<CalculatorProps[]>>;
 }
 
-export const Questionnaire: React.FC = (setParentState) => {
+export const Questionnaire: React.FC<Props> = ({ setParentState }) => {
   const [age, setAge] = useState<AgeProps[]>([]);
   const [activity, setActivity] = useState<ActivityProps[]>([]);
 
   useEffect(() => {
     const ageState = age[0];
     const activityState = activity[0];
-    if (
-      ageState.age !== 0 &&
-      ageState.gender !== 0 &&
-      ageState.height !== 0 &&
-      ageState.weight !== 0 &&
-      activityState.activity !== 0 &&
-      activityState.goal !== 0 &&
-      activityState.experience !== 0
-    ) {
-      setParentState([
-        {
-          age: ageState.age,
-          gender: ageState.gender,
-          weight: ageState.weight,
-          height: ageState.height,
-          activity: activityState.activity,
-          goal: activityState.goal,
-          experience: activityState.experience,
-        },
-      ]);
+    const stateSpread = { ...ageState, ...activityState };
+    for (const key in stateSpread) {
+      if (
+        stateSpread[key as keyof AgeProps | keyof ActivityProps] ===
+          undefined ||
+        stateSpread[key as keyof AgeProps | keyof ActivityProps] === 0
+      ) {
+        return;
+      } else if (activityState === undefined || ageState === undefined) {
+        return;
+      }
     }
+
+    setParentState([stateSpread]);
   }, [age, activity]);
 
   return (
     <div>
-      <Forms setParentState={setAge} />
-      <RadioButtons setParentState={setActivity} />
+      <div>
+        <Forms setParentState={setAge} />
+      </div>
+      <div className="my-6 flex m-auto lg:w-1/2 xl:w-1/3">
+        <RadioButtons setParentState={setActivity} />
+      </div>
     </div>
   );
 };
