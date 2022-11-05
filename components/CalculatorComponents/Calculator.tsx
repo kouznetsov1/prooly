@@ -2,19 +2,31 @@ import { CalculatorProps } from "./props";
 import { CalculatorButtons } from "./CalculatorButtons";
 import { useEffect, useState } from "react";
 import { Questionnaire } from "./Questionnaire";
+import { SelfFill } from "./SelfFill";
+import { Button } from "@components";
+import { Results } from "./Results";
+import { useAtom } from "jotai";
+import { macroAtom } from "./../atoms";
+import { MacroProps } from "components/props";
+import { calculateMacros } from "./calculateMacros";
 
 export const Calculator: React.FC = () => {
   const [useCalculator, setUseCalculator] = useState(true);
   const [finishCalculator, setFinishCalculator] = useState(false);
   const [information, setInformation] = useState<CalculatorProps[]>([]);
+  const [macros, setMacros] = useAtom(macroAtom);
 
   useEffect(() => {
-    console.log(information);
+    if (information.length !== 0) {
+      console.log("infromation", information);
+      setMacros(calculateMacros(information[0]));
+    }
   }, [information]);
+
   return (
     <div>
       {finishCalculator ? (
-        <p>results</p>
+        <Results setFinishCalculator={setFinishCalculator} />
       ) : (
         <div>
           <h1 className="text-white text-2xl text-center my-4 m-auto">
@@ -26,8 +38,20 @@ export const Calculator: React.FC = () => {
               useCalculator={useCalculator}
             />
           </div>
-          <div className="">
-            <Questionnaire setParentState={setInformation} />
+          {useCalculator ? (
+            <div>
+              <Questionnaire setParentState={setInformation} />
+            </div>
+          ) : (
+            <div>
+              <SelfFill />
+            </div>
+          )}
+          <div
+            onClick={() => setFinishCalculator(true)}
+            className="flex m-auto justify-center"
+          >
+            <Button text="Nästa" url="" inverted={false} />
           </div>
         </div>
       )}

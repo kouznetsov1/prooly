@@ -1,5 +1,5 @@
 import { AgeProps } from "../../props";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 interface Props {
   setParentState: React.Dispatch<React.SetStateAction<AgeProps[]>>;
@@ -85,7 +85,7 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
                 <input
                   type="number"
                   className="w-20 text-black"
-                  onInput={(e) => {
+                  onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
                     if (item === "längd") {
                       setHeight(Number(e.target.value));
                     } else if (item === "vikt") {
