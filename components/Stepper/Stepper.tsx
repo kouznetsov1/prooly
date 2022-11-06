@@ -12,7 +12,7 @@ export const Stepper: React.FC<StepperProps> = (props) => {
           <li
             className="relative w-40 after:content-[''] after:absolute after:left-[50%]
             after:top-[200%] after:w-8 after:h-8 after:bg-yellow-300
-            after:rounded-full after:z-50"
+            after:rounded-full after:z-50 after:border-4 after:border-black"
           ></li>
         );
       } else if (i === props.steps - 1) {
@@ -20,9 +20,9 @@ export const Stepper: React.FC<StepperProps> = (props) => {
           <li
             className="relative w-40 
             before:content-[''] before:absolute before:left-[-50%] before:top-[calc(200%+0.8rem)] before:w-full before:h-1 
-            before:bg-neutral-400
+            before:bg-white
             after:content-[''] after:absolute after:left-[50%] after:top-[200%] after:w-8 after:h-8 
-            after:bg-neutral-400 after:rounded-full after:z-50"
+            after:bg-white after:rounded-full after:z-50 after:border-4 after:border-black"
           ></li>
         );
       } else if (i < props.currentStep) {
@@ -31,7 +31,7 @@ export const Stepper: React.FC<StepperProps> = (props) => {
             className="relative w-40
             before:content-[''] before:absolute before:left-[-50%] before:top-[calc(200%+0.8rem)] before:w-full before:h-1 
             before:bg-yellow-300
-            after:content-[''] after:absolute after:left-[50%] after:top-[200%] after:w-5 after:h-5 
+            after:content-[''] after:border-4 after:border-black after:absolute after:left-[50%] after:top-[200%] after:w-8 after:h-8 
             after:bg-yellow-300 after:rounded-full after:z-50"
           ></li>
         );
@@ -51,8 +51,8 @@ export const Stepper: React.FC<StepperProps> = (props) => {
   };
 
   return (
-    <div className="w-96 h-24 p-8">
-      <ol className="flex">{renderLI()}</ol>
+    <div className="w-96 h-24 m-8">
+      <ol className="flex m-auto">{renderLI()}</ol>
     </div>
   );
 };

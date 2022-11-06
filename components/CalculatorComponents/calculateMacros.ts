@@ -65,6 +65,6 @@ function calculateMenBMR(props: CalculatorProps): number {
 function calculateWomenBMR(props: CalculatorProps): number {
   const { age, weight, height } = props;
 
-  const bmr: number = 65 + 9.6 * weight + 1.8 * height - 4.7 * age;
+  const bmr: number = 655 + 9.6 * weight + 1.8 * height - 4.7 * age;
   return bmr;
 }
