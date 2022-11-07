@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { breakfastRecipes, lunchRecipes, dinnerRecipes } from "./data";
 import { RecipeCard } from "./RecipeCard";
 
