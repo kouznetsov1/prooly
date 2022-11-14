@@ -1,9 +1,8 @@
 import { breakfastRecipes, lunchRecipes, dinnerRecipes } from "./data";
-import { RecipeCard } from "./RecipeCard";
+import { Carousel } from "./Carousel";
 
 export const Recipes: React.FC = () => {
   const categories: string[] = ["Breakfast", "Lunch", "Dinner"];
-  console.log("breakfasttyp3", typeof breakfastRecipes);
   return (
     <div>
       <div>
@@ -14,16 +13,14 @@ export const Recipes: React.FC = () => {
           return (
             <div className="my-4">
               <div>
-                <h1 className="text-white text-2xl">{category}</h1>
+                <h2 className="text-white text-2xl">{category}</h2>
               </div>
               <div>
                 {category === "Breakfast" && (
-                  <RecipeCard recipes={breakfastRecipes} />
+                  <Carousel recipes={breakfastRecipes} />
                 )}
-                {category === "Lunch" && <RecipeCard recipes={lunchRecipes} />}
-                {category === "Dinner" && (
-                  <RecipeCard recipes={dinnerRecipes} />
-                )}
+                {category === "Lunch" && <Carousel recipes={lunchRecipes} />}
+                {category === "Dinner" && <Carousel recipes={dinnerRecipes} />}
               </div>
             </div>
           );

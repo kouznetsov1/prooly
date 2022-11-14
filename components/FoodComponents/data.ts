@@ -16,6 +16,10 @@ const lunchRecipe: Recipe = {
   ],
   image:
     "https://www.budgetbytes.com/wp-content/uploads/2022/05/Chicken-and-Rice-close.jpg",
+  kcal: 1000,
+  protein: 100,
+  fat: 100,
+  carbs: 100,
 };
 
 const breakfastRecipe: Recipe = {
@@ -34,6 +38,10 @@ const breakfastRecipe: Recipe = {
   ],
   image:
     "https://assets.epicurious.com/photos/55ad19f02165ea17798702d0/master/pass/EP_15072015_TOMATOTOAST_019.jpg",
+  kcal: 1000,
+  protein: 100,
+  fat: 100,
+  carbs: 100,
 };
 
 const dinnerRecipe: Recipe = {
@@ -52,6 +60,10 @@ const dinnerRecipe: Recipe = {
   ],
   image:
     "https://iamhomesteader.com/wp-content/uploads/2022/04/tuscan-chicken.jpg",
+  kcal: 1000,
+  protein: 100,
+  fat: 100,
+  carbs: 100,
 };
 
 // Add recipe 8 times for testing
