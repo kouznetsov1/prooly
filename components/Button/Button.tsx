@@ -1,13 +1,13 @@
 import Link from "next/link";
 import { useState } from "react";
 
-interface StandardButtonProps {
+interface ButtonProps {
   url: string;
   text: string;
   inverted: boolean;
 }
 
-const StandardButton = (props: StandardButtonProps): JSX.Element => {
+export const Button = (props: ButtonProps): JSX.Element => {
   const [inverted, setInverted] = useState(props.inverted);
 
   return (
@@ -41,4 +41,4 @@ const StandardButton = (props: StandardButtonProps): JSX.Element => {
   );
 };
 
-export default StandardButton;
+export default Button;
