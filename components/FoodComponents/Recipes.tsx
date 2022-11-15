@@ -4,6 +4,7 @@ import { Carousel } from "./Carousel";
 
 export const Recipes: React.FC = () => {
   const categories: string[] = ["Breakfast", "Lunch", "Dinner"];
+  const show: number = 4;
   return (
     <div>
       <div>
@@ -18,10 +19,14 @@ export const Recipes: React.FC = () => {
               </div>
               <div>
                 {category === "Breakfast" && (
-                  <Carousel recipes={breakfastRecipes} />
+                  <Carousel recipes={breakfastRecipes} show={show} />
                 )}
-                {category === "Lunch" && <Carousel recipes={lunchRecipes} />}
-                {category === "Dinner" && <Carousel recipes={dinnerRecipes} />}
+                {category === "Lunch" && (
+                  <Carousel recipes={lunchRecipes} show={show} />
+                )}
+                {category === "Dinner" && (
+                  <Carousel recipes={dinnerRecipes} show={show} />
+                )}
               </div>
             </div>
           );
