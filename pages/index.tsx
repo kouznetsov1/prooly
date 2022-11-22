@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
 import { StaticImageData } from "next/image";
-import backgroundImage from "./../public/index_placeholder.jpg";
+import backgroundImage from "./../public/big.png";
 import Image from "next/image";
 import StandardButton from "../components/Button/Button";
 import Link from "next/link";
+import { useState } from "react";
 
 const Home: NextPage = () => {
   return (
@@ -19,36 +20,24 @@ const Home: NextPage = () => {
 };
 
 function BigScreenIndex() {
+  const [x, setX] = useState(200);
+
   return (
     <div className="w-full top-0 relative min-h-[calc(100vh-160px)]">
-      <div className="h-[600px] grid grid-cols-6">
-        <div className="m-auto flex space-x-40 col-span-2">
-          <div className="h-full m-auto lg:w-80 2xl:w-96">
-            <div className="text-center mb-10">
-              <span className="uppercase lg:text-2xl 2xl:text-6xl font-bold flex">
-                skräddarsy din egen kostplan
-              </span>
-            </div>
-            <div className="my-4 flex justify-center">
-              <StandardButton
-                url="/calculator"
-                text="sätt igång"
-                inverted={false}
-              />
-            </div>
+      <div className="h-[600px]">
+        <div className="m-auto flex justify-center text-center">
+          <div className="">
+            <h1 className="text-7xl uppercase font-extrabold text-center w-96 m-auto flex justify-center mb-10 mt-32">
+              skräddarsy din kostplan
+            </h1>
+            <StandardButton
+              url="/calculator"
+              inverted={true}
+              text="Sätt igång"
+            />
           </div>
-        </div>
-        <div className="col-span-4 bg-black text-white text-6xl uppercase bold font-bold">
-          <div className="flex h-full items-center">
-            <div className="rotate-90">
-              <span>automizing a</span>
-            </div>
-            <div>
-              <span>healthy lifestyle</span>
-              <div className="text-center text-yellow-300 mt-12">
-                <span>prooly</span>
-              </div>
-            </div>
+          <div className="h-[600px] w-full border-2 border-emerald-500 absolute overflow-hidden pointer-events-none">
+            <div className="bubble-wrapper"></div>
           </div>
         </div>
       </div>
@@ -57,6 +46,26 @@ function BigScreenIndex() {
       </div>
     </div>
   );
+}
+
+const animateBubble = (x: number) => {
+  const wrapper = document.getElementById("bubble-wrapper");
+  const bubble = document.createElement("div");
+
+  bubble.className =
+    "w-80 h-80 bg-emerald-500 rounded-full absolute top-full animate-wave";
+  bubble.style.left = `${x}px`;
+
+  if (wrapper) {
+    wrapper.appendChild(bubble);
+    setTimeout(() => wrapper.removeChild(bubble), 2000);
+  }
+};
+
+if (typeof window !== "undefined") {
+  window.onmousemove = (e) => {
+    animateBubble(e.clientX);
+  };
 }
 
 function MobileIndex() {

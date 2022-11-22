@@ -25,26 +25,26 @@ const BigScreenNavbar = (): JSX.Element => {
     { url: "/contact", name: "Kontakt" },
   ];
   return (
-    <div className="h-20 bg-black flex">
+    <div className="h-20 flex border-b-2">
       <div className="w-5/6 flex items-center justify-between m-auto">
         <div className="w-40">
-          <span className="underline underline-offset-8 text-yellow-300 text-2xl font-extrabold">
-            PROOLY
+          <span className="text-emerald-500 text-2xl font-extrabold uppercase">
+            gainoteket
           </span>
         </div>
-        <div className="text-white">
+        <div className="">
           {data.map((item) => (
             <Link href={item.url}>
-              <button className="mx-12 w-24 uppercase font-bold text-center m-auto transition hover:text-yellow-300 hover:-translate-y-1">
+              <button className="mx-12 w-24 uppercase font-bold text-center m-auto transition hover:text-emerald-500 hover:-translate-y-1">
                 {item.name}
               </button>
             </Link>
           ))}
         </div>
         <div className="w-40">
-          <div className="text-white space-x-4">
+          <div className="space-x-4">
             <span className="">USER1337</span>
-            <span className="border-2 border-white rounded-full p-2">
+            <span className="border-2 border-emerald-500 rounded-full p-2">
               {":D"}
             </span>
           </div>
@@ -56,7 +56,7 @@ const BigScreenNavbar = (): JSX.Element => {
 
 function MobileNavbar() {
   return (
-    <div className="flex justify-between mx-auto px-4 py-2 sticky top-0 bg-neutral-900">
+    <div className="flex justify-between mx-auto px-4 py-2 sticky top-0">
       <Logo />
       <BurgerMenu />
     </div>
