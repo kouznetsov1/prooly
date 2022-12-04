@@ -25,17 +25,15 @@ const BigScreenNavbar = (): JSX.Element => {
     { url: "/contact", name: "Kontakt" },
   ];
   return (
-    <div className="h-20 flex border-b-2">
+    <div className="h-20 flex text-white bg-emerald-600">
       <div className="w-5/6 flex items-center justify-between m-auto">
         <div className="w-40">
-          <span className="text-emerald-500 text-2xl font-extrabold uppercase">
-            gainoteket
-          </span>
+          <span className="text-2xl font-extrabold uppercase">gainoteket</span>
         </div>
         <div className="">
           {data.map((item) => (
             <Link href={item.url}>
-              <button className="mx-12 w-24 uppercase font-bold text-center m-auto transition hover:text-emerald-500 hover:-translate-y-1">
+              <button className="mx-12 w-24 uppercase font-bold text-center m-auto transition hover:-translate-y-1">
                 {item.name}
               </button>
             </Link>
