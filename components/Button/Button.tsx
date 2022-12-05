@@ -26,7 +26,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
             </div>
           ) : (
             <div
-              className="bg-emerald-500 border-4 py-2 px-4 rounded-lg border-emerald-500 text-white"
+              className="bg-emerald-700 border-4 py-2 px-4 rounded-lg border-emerald-700 text-white"
               onMouseEnter={() => setInverted(!inverted)}
               onMouseLeave={() => setInverted(!inverted)}
             >

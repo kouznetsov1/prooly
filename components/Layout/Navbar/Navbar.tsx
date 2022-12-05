@@ -25,7 +25,7 @@ const BigScreenNavbar = (): JSX.Element => {
     { url: "/contact", name: "Kontakt" },
   ];
   return (
-    <div className="h-20 flex text-white bg-emerald-600">
+    <div className="h-20 flex text-white bg-black">
       <div className="w-5/6 flex items-center justify-between m-auto">
         <div className="w-40">
           <span className="text-2xl font-extrabold uppercase">gainoteket</span>
@@ -54,7 +54,7 @@ const BigScreenNavbar = (): JSX.Element => {
 
 function MobileNavbar() {
   return (
-    <div className="flex justify-between mx-auto px-4 py-2 sticky top-0">
+    <div className="flex justify-between mx-auto px-4 py-2 sticky top-0 bg-black">
       <Logo />
       <BurgerMenu />
     </div>
@@ -65,9 +65,9 @@ function BurgerMenu() {
   return (
     <div className="flex">
       <div className="space-y-2 m-2">
-        <span className="block w-8 h-0.5 bg-yellow-300"></span>
-        <span className="block w-8 h-0.5 bg-yellow-300"></span>
-        <span className="block w-8 h-0.5 bg-yellow-300"></span>
+        <span className="block w-8 h-0.5 bg-white"></span>
+        <span className="block w-8 h-0.5 bg-white"></span>
+        <span className="block w-8 h-0.5 bg-white"></span>
       </div>
     </div>
   );
@@ -77,8 +77,8 @@ function Logo() {
   return (
     <Link href="/">
       <button className="">
-        <div className="border-4 border-yellow-300 rounded-full">
-          <p className="mx-3 my-1 text-yellow-300 font-bold">P</p>
+        <div className="border-2 border-white rounded-full">
+          <p className="mx-3 my-1 text-white font-extrabold">G</p>
         </div>
       </button>
     </Link>
