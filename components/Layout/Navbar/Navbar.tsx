@@ -30,12 +30,14 @@ const BigScreenNavbar = (): JSX.Element => {
         <div className="w-40">
           <span className="text-2xl font-extrabold uppercase">gainoteket</span>
         </div>
-        <div className="">
+        <div className="flex">
           {data.map((item) => (
             <Link href={item.url}>
-              <button className="mx-12 w-24 uppercase font-bold text-center m-auto transition hover:-translate-y-1">
-                {item.name}
-              </button>
+              <div className="">
+                <button className="mx-12 w-24 uppercase font-bold text-center m-auto hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-gradient-to-br hover:bg-emerald-700 rounded-md p-3">
+                  {item.name}
+                </button>
+              </div>
             </Link>
           ))}
         </div>
@@ -54,7 +56,7 @@ const BigScreenNavbar = (): JSX.Element => {
 
 function MobileNavbar() {
   return (
-    <div className="flex justify-between mx-auto px-4 py-2 sticky top-0 bg-black">
+    <div className="flex justify-between mx-auto px-6 py-2 sticky top-0 bg-black">
       <Logo />
       <BurgerMenu />
     </div>
@@ -77,8 +79,8 @@ function Logo() {
   return (
     <Link href="/">
       <button className="">
-        <div className="border-2 border-white rounded-full">
-          <p className="mx-3 my-1 text-white font-extrabold">G</p>
+        <div className="border-2 border-white rounded-lg">
+          <p className="mx-3 my-1 text-white font-extrabold">Gainoteket</p>
         </div>
       </button>
     </Link>

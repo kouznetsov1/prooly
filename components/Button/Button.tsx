@@ -16,21 +16,21 @@ export const Button = (props: ButtonProps): JSX.Element => {
         <button>
           {inverted ? (
             <div
-              className="text-emerald-500 border-4 py-2 px-4 rounded-lg border-emerald-400 bg-white"
+              className="text-white border-4 py-2 px-4 rounded-lg border-emerald-700 bg-emerald-700"
               onMouseEnter={() => setInverted(!inverted)}
               onMouseLeave={() => setInverted(!inverted)}
             >
-              <span className="uppercase font-bold text-center flex m-auto">
+              <span className="uppercase font-bold text-center flex m-auto lg:text-xl">
                 {props.text}
               </span>
             </div>
           ) : (
             <div
-              className="bg-emerald-700 border-4 py-2 px-4 rounded-lg border-emerald-700 text-white"
+              className="bg-white border-4 py-2 px-4 rounded-lg border-emerald-700 text-emerald-700"
               onMouseEnter={() => setInverted(!inverted)}
               onMouseLeave={() => setInverted(!inverted)}
             >
-              <span className="uppercase font-bold text-center flex m-auto">
+              <span className="uppercase font-bold text-center flex m-auto lg:text-xl">
                 {props.text}
               </span>
             </div>

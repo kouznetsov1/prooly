@@ -7,7 +7,7 @@ export default function Layout({ children }: React.PropsWithChildren) {
   return (
     <>
       <Head>
-        <title>Prooly</title>
+        <title>Gainoteket</title>
       </Head>
 
       <Navbar />
