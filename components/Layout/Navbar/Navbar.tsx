@@ -1,22 +1,27 @@
 import Link from "next/link";
+import { useState } from "react";
 
 interface NavbarProps {
   url: string;
   name: string;
 }
 
-export default function NavBar() {
+interface InterfaceProps {
+  setNavMenuOpen: (value: boolean) => void;
+}
+
+export const NavBar = (props: InterfaceProps): JSX.Element => {
   return (
     <div className="z-0 w-full">
       <div className="lg:hidden">
-        <MobileNavbar />
+        <MobileNavbar setNavMenuOpen={props.setNavMenuOpen} />
       </div>
       <div className="hidden lg:block">
         <BigScreenNavbar />
       </div>
     </div>
   );
-}
+};
 
 const BigScreenNavbar = (): JSX.Element => {
   var data: NavbarProps[] = [
@@ -54,14 +59,17 @@ const BigScreenNavbar = (): JSX.Element => {
   );
 };
 
-function MobileNavbar() {
+const MobileNavbar = (props: InterfaceProps): JSX.Element => {
   return (
-    <div className="flex justify-between mx-auto px-6 py-2 sticky top-0 bg-black">
+    <div
+      className="flex justify-between mx-auto px-6 py-2 sticky top-0 bg-black"
+      onClick={() => props.setNavMenuOpen(true)}
+    >
       <Logo />
       <BurgerMenu />
     </div>
   );
-}
+};
 
 function BurgerMenu() {
   return (
@@ -80,9 +88,13 @@ function Logo() {
     <Link href="/">
       <button className="">
         <div className="border-2 border-white rounded-lg">
-          <p className="mx-3 my-1 text-white font-extrabold">Gainoteket</p>
+          <p className="mx-3 my-1 text-white font-extrabold uppercase">
+            Gainoteket
+          </p>
         </div>
       </button>
     </Link>
   );
 }
+
+export default NavBar;
