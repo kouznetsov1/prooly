@@ -28,30 +28,29 @@ const BigScreenNavbar = (): JSX.Element => {
     { url: "/", name: "Start" },
     { url: "/about", name: "Om oss" },
     { url: "/contact", name: "Kontakt" },
+    { url: "/sign-in", name: "Logga in" },
   ];
   return (
     <div className="h-20 flex text-white bg-black">
-      <div className="w-5/6 flex items-center justify-between m-auto">
-        <div className="w-40">
-          <span className="text-2xl font-extrabold uppercase">gainoteket</span>
-        </div>
-        <div className="flex">
-          {data.map((item) => (
-            <Link href={item.url}>
-              <div className="">
-                <button className="mx-12 w-24 uppercase font-bold text-center m-auto hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-gradient-to-br hover:bg-emerald-700 rounded-md p-3">
-                  {item.name}
-                </button>
-              </div>
-            </Link>
-          ))}
-        </div>
-        <div className="w-40">
-          <div className="space-x-4">
-            <span className="">USER1337</span>
-            <span className="border-2 border-emerald-500 rounded-full p-2">
-              {":D"}
+      <div className="w-5/6 text-center m-auto">
+        <div className="flex items-center justify-between">
+          <div className="w-40">
+            <span className="text-3xl font-extrabold uppercase">
+              gainoteket
             </span>
+          </div>
+          <div className="flex items-center text-center">
+            <div className="flex">
+              {data.map((item, key) => (
+                <Link href={item.url} key={key}>
+                  <div className="">
+                    <button className="w-32 uppercase font-bold text-center m-auto hover:transition-all hover:duration-300 hover:ease-in-out hover:bg-gradient-to-br hover:bg-primary rounded-md p-3">
+                      {item.name}
+                    </button>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

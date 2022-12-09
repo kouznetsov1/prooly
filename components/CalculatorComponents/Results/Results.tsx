@@ -17,18 +17,17 @@ export const Results: React.FC<Props> = ({ setFinishCalculator }) => {
         <div className="grid m-auto text-lg">
           <span className="my-1">
             Ditt dagliga intag av kalorier är{" "}
-            <span className="text-yellow-300">{macros.calories} </span>
+            <span className="text-secondary">{macros.calories} </span>
             med följande näringsvärden:
           </span>
           <span className="my-1">
-            Protein: <span className="text-yellow-300">{macros.protein} </span>
+            Protein: <span className="text-secondary">{macros.protein} </span>
           </span>
           <span>
-            Kolhydrater:{" "}
-            <span className="text-yellow-300">{macros.carbs} </span>
+            Kolhydrater: <span className="text-secondary">{macros.carbs} </span>
           </span>
           <span className="my-1">
-            Fett: <span className="text-yellow-300">{macros.fat} </span>
+            Fett: <span className="text-secondary">{macros.fat} </span>
           </span>
         </div>
       </div>
