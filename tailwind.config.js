@@ -14,6 +14,11 @@ module.exports = {
       animation: {
         wave: "wave 2s ease-in-out infinite",
       },
+      colors: {
+        primary: "#047857",
+        secondary: "#10b981",
+        tertiary: "#6ee7b7",
+      },
       keyframes: {
         wave: {
           "to, from": { transform: "translate(-50%, 0%)" },

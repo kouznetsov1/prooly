@@ -35,7 +35,7 @@ export const Carousel: React.FC<Props> = ({ recipes, show }) => {
           >
             {recipes.map((recipe, index) => (
               <div key={index} className="" style={{ width: `${100 / show}%` }}>
-                <h1 className="text-white">{index}</h1>
+                {/*<h1 className="text-white">{index}</h1>*/}
                 <RecipeCard recipe={recipe} />
               </div>
             ))}

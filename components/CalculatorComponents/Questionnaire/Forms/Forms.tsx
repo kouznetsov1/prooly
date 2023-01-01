@@ -37,8 +37,8 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
   }, [age, gender, weight, height]);
 
   return (
-    <div className="grid m-auto justify-evenly">
-      <div className="grid grid-cols-2 justify-evenly my-2">
+    <div className="grid m-auto justify-evenly w-5/6">
+      <div className="grid grid-cols-3 justify-evenly my-2">
         <span className="col-end-1 w-24">Ålder</span>
         <div className="col-start-2 justify-start flex">
           <input
@@ -53,7 +53,7 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
       </div>
       {/* gender */}
       <div className="my-2">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-3">
           <span className="col-end-1 w-24">Kön</span>
           <div className="col-start-2">
             {genders.map((item, index) => (
@@ -76,7 +76,7 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
           {lengthAndWeight.map((item, index) => (
             <div
               key={"lw" + index}
-              className="justify-between my-2 grid grid-cols-2"
+              className="justify-between my-2 grid grid-cols-3"
             >
               <span className="col-end-1 w-24 capitalize">{item}</span>
               <div className="col-start-2">

@@ -17,7 +17,7 @@ export const RecipeCard: React.FC<Props> = ({ recipe }) => {
                 <span>Kalorier: </span>
               </div>
               <div>
-                <span className="text-yellow-300">{recipe.kcal}</span>
+                <span className="text-secondary">{recipe.kcal}</span>
               </div>
               {"\n"}
             </div>
@@ -26,7 +26,7 @@ export const RecipeCard: React.FC<Props> = ({ recipe }) => {
                 <span>Protein: </span>
               </div>
               <div>
-                <span className="text-yellow-300">{recipe.protein}</span>
+                <span className="text-secondary">{recipe.protein}</span>
               </div>
               {"\n"}
             </div>
@@ -35,7 +35,7 @@ export const RecipeCard: React.FC<Props> = ({ recipe }) => {
                 <span>Kolhydrater: </span>
               </div>
               <div>
-                <span className="text-yellow-300">{recipe.carbs}</span>
+                <span className="text-secondary">{recipe.carbs}</span>
               </div>
               {"\n"}
             </div>
@@ -44,17 +44,17 @@ export const RecipeCard: React.FC<Props> = ({ recipe }) => {
                 <span>Fett: </span>
               </div>
               <div>
-                <span className="text-yellow-300">{recipe.fat}</span>
+                <span className="text-secondary">{recipe.fat}</span>
               </div>
               {"\n"}
             </div>
           </div>
           <div className="text-center my-4 flex m-auto justify-center">
-            <button className="bg-black text-yellow-300 font-bold rounded-full w-8 h-8">
+            <button className="bg-black text-secondary font-bold rounded-full w-8 h-8">
               -
             </button>
             <p className="mx-4 my-1">0</p>
-            <button className="bg-yellow-300 text-black font-bold rounded-full w-8 h-8">
+            <button className="bg-primary text-white font-bold rounded-full w-8 h-8">
               +
             </button>
           </div>

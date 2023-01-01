@@ -73,7 +73,7 @@ function SiteShowcase() {
                   <span className="text-xl flex m-auto">Bild1</span>
                 </div>
                 <div className="m-auto">
-                  <div className="mb-4 text-secondary">
+                  <div className="mb-4 text-primary">
                     <span className="text-2xl font-bold my-4">
                       {item.title}
                     </span>
@@ -91,7 +91,7 @@ function SiteShowcase() {
                   <span className="text-black text-xl flex m-auto">Bild1</span>
                 </div>
                 <div className="m-auto">
-                  <div className="mb-4 text-secondary">
+                  <div className="mb-4 text-primary">
                     <span className="text-2xl font-bold my-4">
                       {item.title}
                     </span>

@@ -8,11 +8,11 @@ export default function RecipesPage() {
         <div className="flex justify-center">
           <Stepper steps={3} currentStep={2} />
         </div>
-        <div className="grid grid-cols-3 gap-4 mx-12">
-          <div className="col-span-2">
+        <div className="flex flex-col lg:flex-row lg:mx-8 mx-4">
+          <div className="lg:w-2/3 lg:mr-4">
             <Recipes />
           </div>
-          <div className="border-2">
+          <div className="border-2 rounded-md lg:w-1/3 mt-4">
             <p className="text-4xl text-white">Calories & macros</p>
           </div>
         </div>
