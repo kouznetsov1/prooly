@@ -38,7 +38,7 @@ export const SelfFill: React.FC = () => {
     <div className="w-1/2 m-auto my-12">
       {data.map((item) => (
         <div className="grid grid-cols-2 justify-between my-2">
-          <span className="col-end-1 w-26 text-white">{item.text}</span>
+          <span className="col-end-1 w-26">{item.text}</span>
           <div className="col-start-3 col-span-2">
             <input
               type="number"

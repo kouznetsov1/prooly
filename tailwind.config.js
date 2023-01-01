@@ -6,6 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: "#065f46",
+        secondary: "#059669",
+        accent: "#6ee7b7",
+      },
       animation: {
         wave: "wave 2s ease-in-out infinite",
       },

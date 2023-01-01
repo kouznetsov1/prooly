@@ -11,8 +11,11 @@ interface InterfaceProps {
 }
 
 export const NavBar = (props: InterfaceProps): JSX.Element => {
+  // Temporary solution to check if we are on the home page
+  var onHomePage: boolean = false;
+
   return (
-    <div className="z-0 w-full">
+    <div className="z-0 w-full ">
       <div className="lg:hidden">
         <MobileNavbar setNavMenuOpen={props.setNavMenuOpen} />
       </div>

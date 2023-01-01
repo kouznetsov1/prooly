@@ -29,7 +29,7 @@ export const Calculator: React.FC = () => {
         <Results setFinishCalculator={setFinishCalculator} />
       ) : (
         <div>
-          <h1 className="text-white text-2xl text-center my-4 m-auto">
+          <h1 className="text-2xl text-center my-4 m-auto">
             Steg 1. Skriv in dina mål och räkna ut ditt intag för en dag.
           </h1>
           <div>

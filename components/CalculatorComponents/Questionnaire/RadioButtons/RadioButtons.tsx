@@ -46,7 +46,7 @@ export const RadioButtons: React.FC<Props> = ({ setParentState }) => {
     <div>
       {categories.map((category) => (
         <div className="my-8 w-5/6 lg:w-full m-auto">
-          <h2 className="text-white text-2xl mb-2">{category.title}</h2>
+          <h2 className="text-2xl mb-2">{category.title}</h2>
           <div className="flex flex-wrap justify-center">
             {category.options.map((option, index_option) => (
               <div className="w-full my-2 flex">
@@ -59,7 +59,7 @@ export const RadioButtons: React.FC<Props> = ({ setParentState }) => {
                   onInput={(e) => radioClick(e)}
                 />
                 <div className="mx-2 w-full">
-                  <span className="text-white">{option}</span>
+                  <span className="">{option}</span>
                 </div>
               </div>
             ))}

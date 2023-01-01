@@ -37,7 +37,7 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
   }, [age, gender, weight, height]);
 
   return (
-    <div className="grid text-white m-auto justify-evenly">
+    <div className="grid m-auto justify-evenly">
       <div className="grid grid-cols-2 justify-evenly my-2">
         <span className="col-end-1 w-24">Ålder</span>
         <div className="col-start-2 justify-start flex">
@@ -66,9 +66,7 @@ export const Forms: React.FC<Props> = ({ setParentState }) => {
                   className=""
                   onInput={() => setGender(item.value)}
                 />
-                <span className="text-white mx-2 capitalize">
-                  {item.gender}
-                </span>
+                <span className="mx-2 capitalize">{item.gender}</span>
               </div>
             ))}
           </div>

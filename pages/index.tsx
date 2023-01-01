@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 
 function BigImage() {
   return (
-    <div className="w-full top-0 relative">
+    <div className="w-full relative">
       <div className="h-96 lg:h-[600px] bg-[url('../public/groceries.jpeg')] bg-cover bg-center">
         <div className="m-auto flex justify-center text-center h-full">
           <div className="h-40 lg:h-64 w-64 lg:w-[30rem] translate-y-3/4 lg:translate-y-40 -translate-x-12 md:-translate-x-32 lg:-translate-x-80">
@@ -70,10 +70,10 @@ function SiteShowcase() {
             <div className="justify-center" key={index}>
               <div className="text-center py-2">
                 <div className="bg-gray-200 flex m-auto w-3/4 h-56 my-6">
-                  <span className="text-black text-xl flex m-auto">Bild1</span>
+                  <span className="text-xl flex m-auto">Bild1</span>
                 </div>
                 <div className="m-auto">
-                  <div className="mb-4 text-emerald-600">
+                  <div className="mb-4 text-secondary">
                     <span className="text-2xl font-bold my-4">
                       {item.title}
                     </span>
@@ -91,7 +91,7 @@ function SiteShowcase() {
                   <span className="text-black text-xl flex m-auto">Bild1</span>
                 </div>
                 <div className="m-auto">
-                  <div className="mb-4 text-emerald-600">
+                  <div className="mb-4 text-secondary">
                     <span className="text-2xl font-bold my-4">
                       {item.title}
                     </span>
@@ -143,7 +143,7 @@ function SiteShowcase2() {
                 <span className="text-black text-4xl flex m-auto">Bild</span>
               </div>
               <div className="w-[30rem] m-auto ml-32">
-                <div className="mb-4 text-emerald-600">
+                <div className="mb-4 text-secondary">
                   <span className="text-4xl font-bold my-4">{item.title}</span>
                 </div>
                 <div className="">
@@ -156,7 +156,7 @@ function SiteShowcase2() {
           <div className="mb-32 w-3/4 flex m-auto justify-center" key={index}>
             <div className="text-center py-2 flex m-auto">
               <div className="w-[30rem] m-auto mr-32">
-                <div className="mb-4 text-emerald-600">
+                <div className="mb-4 text-secondary">
                   <span className="text-4xl font-bold my-4">{item.title}</span>
                 </div>
                 <div className="">

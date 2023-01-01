@@ -10,7 +10,7 @@ export const Results: React.FC<Props> = ({ setFinishCalculator }) => {
   const [macros] = useAtom(macroAtom);
   return (
     <div>
-      <div className="w-full text-white text-center">
+      <div className="w-full text-center">
         <div>
           <h1 className="text-3xl my-4">Resultat</h1>
         </div>
