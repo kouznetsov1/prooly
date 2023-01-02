@@ -6,7 +6,7 @@ interface Props {
 
 export const RecipeCard: React.FC<Props> = ({ recipe }) => {
   return (
-    <div className="m-2 w-56 my-4">
+    <div className="m-2 w-56 my-4 border-2 border-white">
       <div className="text-white">
         <img className="rounded-3xl" src={recipe.image} alt={recipe.name} />
         <div className="mx-2">
