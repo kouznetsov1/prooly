@@ -7,6 +7,8 @@ interface Props {
   show: number;
 }
 
+var _window = typeof window !== "undefined" && window;
+
 export const Carousel: React.FC<Props> = ({ recipes, show }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [xPos, setXPos] = useState(0);
